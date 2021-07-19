@@ -84,6 +84,7 @@ const handleNoteDelete = (e) => {
 
   const note = e.target;
   const noteId = JSON.parse(note.parentElement.getAttribute('data-note')).id;
+  console.log(noteId);
 
   if (activeNote.id === noteId) {
     activeNote = {};
@@ -121,7 +122,7 @@ const renderNoteList = async (notes) => {
   let jsonNotes = await notes.json();
   //Fixed for JSON res structure
   jsonNotes = jsonNotes.data.notes;
-  console.log(jsonNotes)
+  //console.log(jsonNotes)
   if (window.location.pathname === '/notes') {
     noteList.forEach((el) => (el.innerHTML = ''));
   }
